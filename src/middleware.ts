@@ -16,6 +16,8 @@ export default withAuth(
       authorized: async params => {
         let { token: user } = params
 
+        if (!user) return false
+
         const verified = await verifyJwt(user?.accessToken)
 
         return verified ? true : false

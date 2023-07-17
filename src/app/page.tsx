@@ -54,6 +54,10 @@ const Home: FunctionComponent<HomeProps> = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -100,7 +104,7 @@ const Home: FunctionComponent<HomeProps> = () => {
                     <FormItem>
                       <FormLabel>Username</FormLabel>
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" type="text" {...field} />
                       </FormControl>
 
                       <FormMessage />
